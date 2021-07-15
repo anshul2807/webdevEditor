@@ -1,0 +1,140 @@
+:root{
+  --light-blue : #1a73e8;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+ /* NavBar */
+   .navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+   
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 1px solid #DADCE0;
+    
+   }
+   .navbar__heading{
+    
+   }
+   .navbar__lists{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+   }
+   .navbar__lists li{
+       
+       margin-left: 70px;
+       padding:10px;
+       font-size: 20px;
+       font-weight: 500;
+       cursor: pointer;
+      
+      
+   }
+
+   .navbar__lists li img{
+    padding:10px;
+   background : #ECECED;
+    border-radius:50%;
+   }
+   .navbar__lists li a{
+  text-decoration: none;
+  color:inherit;
+}
+.navbar__lists li:target{
+ 
+}
+
+
+ 
+
+/* Body */
+  .Body{
+      display: flex;
+      flex-direction: row;
+  }
+
+  .code-area {
+    height: 100vh;
+    display: flex;
+    flex-direction:column;
+    width: 50%;
+    border-right:1px solid #DADCE0;
+  }
+  .html-area {
+    height: 33.33%;
+    position: relative;
+   
+  }
+  .css-area {
+    height: 33.33%;
+    position: relative;
+     
+}
+.js-area {
+    height: 33.33%;
+    position: relative;
+    
+  
+ }
+
+  .html-area textarea, .css-area textarea, .js-area textarea {
+    resize: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    padding: 10px;
+    
+    
+    
+    
+}
+  .preview-area {
+    width: 50%;
+    border: 1px solid #DADCE0;
+  }
+  .preview-area iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .html-area img , .css-area img , .js-area img{
+      position: absolute;
+      left: 600px;
+      top:160px;
+      cursor: pointer;
+     
+  }
+
+
+ ::-webkit-scrollbar {
+    width: 10px;
+    
+  }
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+   
+  }
+  
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+   
+  }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstarp CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- MAterial Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Live Editor</title>
+</head>
+<body>
+   <nav class="navbar">
+       <h2 class="navbar__heading">Online Editor</h2>
+        <ul class="navbar__lists">
+            <li class="navbar__lists__home" onClick="listsStyle('home')"><a href="#">Home</a></li>
+            <li class="navbar__lists__signup" onClick="listsStyle('signup')"><a href="#">SignUp</a></li>
+            <li class="navbar__lists__signin" onClick="listsStyle('signin')"><a href="#">SignIn</a></li>
+            <li><img class="navbar__darkmode" src="static/darkmode.svg" alt="dark" onClick="changeTheme()" /></li>
+            
+        </ul>
+    </nav>
+    <div class="Body">
+        <div class="code-area">
+            <div class="html-area">
+             <img src="static/refresh.svg" alt="refres-html" 
+             onClick="clearSection('html')"
+             />    
+             <textarea id="htmlCode" placeholder="HTML Code" oninput="showPreview()"></textarea> 
+            </div>
+            <div class="css-area">
+             <img src="static/refresh.svg" alt="refres-html" 
+             onClick="clearSection('css')"
+             />
+             <textarea id="cssCode" placeholder="CSS Code" oninput="showPreview()"></textarea>
+            </div>
+            <div class="js-area">
+             <img src="static/refresh.svg" alt="refres-html" 
+             onClick="clearSection('js')"
+             />
+             <textarea id="jsCode" placeholder="JavaScript Code" oninput="showPreview()"></textarea>				
+            </div>
+         </div>
+           <div class="preview-area">
+             <iframe id="preview-window"></iframe>
+           </div>
+     
+    </div>
+
+
+
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Local JS -->
+        <script src="./script/script.js"></script>
+</body>
+</html>
