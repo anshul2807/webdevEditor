@@ -10,10 +10,6 @@ let lists = document.querySelector('.navbar__lists li');
 let html,css,js;
 let key='WEBDEVEDITOR';
 
-
-
-
-
  const showPreview = () => {
      html = htmlCode.value;
      css = "<style>"+cssCode.value+"</style>";
@@ -99,7 +95,7 @@ let key='WEBDEVEDITOR';
    code_area.style.width = size;
  }
  window.onload=()=>{
-    var L_html,L_css,L_js;
+    var L_html='',L_css,L_js;
     if(localStorage.getItem(`${key}HTML`)){
       L_html = localStorage.getItem(`${key}HTML`);
       htmlCode.innerHTML = L_html
