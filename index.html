@@ -26,7 +26,6 @@
     <div class="Body">
         <div class="code-area">
             <div class="html-area">
-
              <svg id="html-svg" class="" alt="refres-html" 
              onClick="clearSection('html')" 
              
@@ -75,6 +74,25 @@
            <a id="dragable" class="dragable"></a>
            <div class="preview-area">
              <iframe width="100%" height="100%" id="preview-window"></iframe>
+           
+           <!-- Console -->
+             <div class="console">
+            <div class="console__head">
+                <img class="console__expand" src="./static/expand.svg" alt="expandmore" 
+                onclick="expanded()"
+                />
+                <label id="console-label"
+                onclick="expanded()"
+                >console</label>
+            </div>
+            <div class="console__status">
+                <label>Status : </label>
+                <p> OK</p>
+            </div>
+            <div class="console__inner hidden">
+                <p id="console__value"></p>
+            </div>
+            </div>
            </div>
      
     </div>

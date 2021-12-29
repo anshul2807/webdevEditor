@@ -210,3 +210,33 @@ let key='WEBDEVEDITOR';
 
    darksvg.style.backgroundColor="#ECECED";
  }
+
+ //Expanded Console
+
+ let consoleToggle = false;
+
+ function expanded(){
+   
+   let Expandpreview = document.querySelector('.preview-area');
+   let ExpandConsole = document.querySelector('.console');
+   let ExpandInner = document.querySelector('.console__inner');
+   
+   consoleToggle = !consoleToggle;
+   if(consoleToggle){
+      Expandpreview.classList.add('expanded__preview-area');
+      ExpandConsole.classList.add('expanded__console');
+      ExpandInner.classList.remove('hidden');
+      // showConsoleValue();
+   }else{
+      
+      Expandpreview.classList.remove('expanded__preview-area');
+      ExpandConsole.classList.remove('expanded__console');
+      ExpandInner.classList.add('hidden');   
+   }
+
+ }
+
+
+ function showConsoleValue(){
+   
+ }
