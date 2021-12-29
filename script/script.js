@@ -6,7 +6,7 @@ let darksvg = document.querySelector(".navbar__darkmode")
 
 let lists = document.querySelector('.navbar__lists li');
 
-let toggleMode=false;
+let toggleMode=true;   // darkmode and lightmode
 
 // local var
 let html,css,js;
@@ -83,8 +83,14 @@ let key='WEBDEVEDITOR';
    const size = `${e.x}px`;
    code_area.style.width = size;
  }
+
+ // Window ONLOAD
+
  window.onload=()=>{
+
+   
     var L_html='',L_css,L_js;
+    var TOGGLE;
     if(localStorage.getItem(`${key}HTML`)){
       L_html = localStorage.getItem(`${key}HTML`);
       htmlCode.innerHTML = L_html
@@ -98,6 +104,12 @@ let key='WEBDEVEDITOR';
     if(localStorage.getItem(`${key}JS`)){
        L_js = localStorage.getItem(`${key}JS`);
       jsCode.innerHTML = L_js;
+    }
+    if(localStorage.getItem(`${key}TOGGLE`)){
+      TOGGLE = localStorage.getItem(`${key}TOGGLE`);
+      toggleMode = TOGGLE;
+      console.log(toggleMode);
+      TOGGLEDARKMODE(TOGGLE);
     }
 
     L_html = L_html;
@@ -114,8 +126,20 @@ let key='WEBDEVEDITOR';
  // changeTheme
 
  const changeTheme = () =>{
+
+    
+    toggleMode = !toggleMode; 
+    localStorage.setItem(`${key}TOGGLE`,toggleMode);
    
-   if(darksvg.alt === "dark")
+   TOGGLEDARKMODE(toggleMode);
+ 
+ }
+
+ // DARKMODE VARIABLE 
+
+ function TOGGLEDARKMODE(toggleEle){
+
+   if(toggleEle)
    {
        darksvg.src = "static/lightmode.svg"
        darksvg.alt = "light"
@@ -125,26 +149,24 @@ let key='WEBDEVEDITOR';
        darksvg.src = "static/darkmode.svg"
        darksvg.alt = "dark"
    }
-
-   toggleMode = !toggleMode; 
-
-  // local var
-  let darkNavbar = document.querySelector('.navbar');
-  let darkNavbarHeading = document.querySelector('.navbar__heading');
-  let darkNavbarLists = document.querySelector('.navbar__lists');
-  let darkHTML = document.querySelector('#htmlCode');
-  let darkCSS = document.querySelector('#cssCode');
-  let darkJS = document.querySelector('#jsCode');
-  let draggable = document.querySelector('.dragable');
-  let darkHTMLSVG = document.querySelector('#html-svg');
-  let darkCSSSVG = document.querySelector('#css-svg');
-  let darkJSSVG = document.querySelector('#js-svg');
-  
-  if(toggleMode){
-     changeColorDark(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG);
-  }else{
-     changeColorLight(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG);
-  }  
+   
+      // local var
+      let darkNavbar = document.querySelector('.navbar');
+      let darkNavbarHeading = document.querySelector('.navbar__heading');
+      let darkNavbarLists = document.querySelector('.navbar__lists');
+      let darkHTML = document.querySelector('#htmlCode');
+      let darkCSS = document.querySelector('#cssCode');
+      let darkJS = document.querySelector('#jsCode');
+      let draggable = document.querySelector('.dragable');
+      let darkHTMLSVG = document.querySelector('#html-svg');
+      let darkCSSSVG = document.querySelector('#css-svg');
+      let darkJSSVG = document.querySelector('#js-svg');
+      
+      if(toggleEle){
+         changeColorDark(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG);
+      }else{
+         changeColorLight(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG);
+      }  
  }
 
  // darkmode 

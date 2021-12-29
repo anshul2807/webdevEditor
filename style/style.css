@@ -174,8 +174,10 @@
    .dark_html-area{
      background-color: #0D1117;
      color: #FFFFFF;
+
      
    }
+   
    .dark_css-area{
     background-color: #0D1117;
     color: #FFFFFF;
@@ -192,4 +194,13 @@
 
   .dark_refresh-svg{
     fill: #ffffff;
+  }
+
+  .dark_html-area::placeholder{
+    color: #589DCB;
+  }
+  .dark_css-area::placeholder{
+    color: #589DCB;
+  }.dark_js-area::placeholder{
+    color: #589DCB;
   }
