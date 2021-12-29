@@ -111,7 +111,7 @@
 }
   .preview-area {
     /* width: 50%; */
-    border: 1px solid #DADCE0;
+    
     flex-basis: 0;
     flex-grow: 1;
     min-width: 0;
@@ -119,7 +119,7 @@
   }
   .preview-area iframe {
     
-    border: none; 
+    border: 1px solid #212224;
   }
 
   .html-area svg , .css-area svg , .js-area svg{
