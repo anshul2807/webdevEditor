@@ -20,7 +20,7 @@
     
    }
    .navbar__heading{
-    
+    cursor: pointer;
    }
    .navbar__lists{
     display: flex;
@@ -54,7 +54,7 @@
  
 }
 
-#dragable{
+.dragable{
   cursor: col-resize;
   width:10px;
   flex-basis: 18px;
@@ -122,7 +122,7 @@
     border: none; 
   }
 
-  .html-area img , .css-area img , .js-area img{
+  .html-area svg , .css-area svg , .js-area svg{
       position: absolute;
       left: 90%;
       top:160px;
@@ -150,4 +150,46 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
    
+  }
+
+   /* DarkMode */
+
+   .dark_navbar{
+    background-color: #161B22;
+   }
+   .dark_heading{
+     color: #FFFFFF;
+     
+    }
+    .dark_heading:hover{
+      color : #AFB5BB;
+    }
+   .dark_navbar_lists{
+    color: #FFFFFF;
+   }
+   .dark_navbar_lists li:hover{
+    color : #AFB5BB;
+  }
+
+   .dark_html-area{
+     background-color: #0D1117;
+     color: #FFFFFF;
+     
+   }
+   .dark_css-area{
+    background-color: #0D1117;
+    color: #FFFFFF;
+  }.dark_js-area{
+    background-color: #0D1117;
+    color: #FFFFFF;
+  }
+  .dark_html-area img{
+    color: #FFFFFF;
+  }
+  .dark_dragable{
+    background-color: #20242a;
+  }
+
+  .dark_refresh-svg{
+    fill: #ffffff;
   }

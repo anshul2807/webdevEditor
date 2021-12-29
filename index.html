@@ -26,25 +26,51 @@
     <div class="Body">
         <div class="code-area">
             <div class="html-area">
-             <img src="static/refresh.svg" alt="refres-html" 
-             onClick="clearSection('html')"
-             />    
-             <textarea id="htmlCode" placeholder="HTML Code" oninput="showPreview()"></textarea> 
+
+             <svg id="html-svg" class="" alt="refres-html" 
+             onClick="clearSection('js')" xmlns="http://www.w3.org/2000/svg" 
+             height="36px" 
+             viewBox="0 0 24 24" 
+             width="36px" 
+             fill="#000000">
+
+             <path d="M0 0h24v24H0z" fill="none"/><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+            
+            </svg>   
+
+             <textarea class="" id="htmlCode" placeholder="HTML Code" oninput="showPreview()"></textarea> 
             </div>
             <div class="css-area">
-             <img src="static/refresh.svg" alt="refres-html" 
-             onClick="clearSection('css')"
-             />
-             <textarea id="cssCode" placeholder="CSS Code" oninput="showPreview()"></textarea>
+
+            <svg id="css-svg" class="" alt="refres-html" 
+             onClick="clearSection('js')" xmlns="http://www.w3.org/2000/svg" 
+             height="36px" 
+             viewBox="0 0 24 24" 
+             width="36px" 
+             fill="#000000">
+
+             <path d="M0 0h24v24H0z" fill="none"/><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+            
+            </svg>
+
+             <textarea class=""  id="cssCode" placeholder="CSS Code" oninput="showPreview()"></textarea>
             </div>
             <div class="js-area">
-             <img src="static/refresh.svg" alt="refres-html" 
-             onClick="clearSection('js')"
-             />
-             <textarea id="jsCode" placeholder="JavaScript Code" oninput="showPreview()"></textarea>				
+             
+             <svg id="js-svg" class="" alt="refres-html" 
+             onClick="clearSection('js')" xmlns="http://www.w3.org/2000/svg" 
+             height="36px" 
+             viewBox="0 0 24 24" 
+             width="36px" 
+             fill="#000000">
+
+             <path d="M0 0h24v24H0z" fill="none"/><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
+            
+            </svg>
+             <textarea  class="" id="jsCode" placeholder="JavaScript Code" oninput="showPreview()"></textarea>				
             </div>
          </div>
-           <a id="dragable"></a>
+           <a id="dragable" class="dragable"></a>
            <div class="preview-area">
              <iframe width="100%" height="100%" id="preview-window"></iframe>
            </div>
