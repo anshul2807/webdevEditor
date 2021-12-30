@@ -41,14 +41,24 @@
       
    }
 
-   .navbar__lists li img{
+.navbar__lists li img{
     padding:10px;
    background : #ECECED;
     border-radius:50%;
-   }
-   .navbar__lists li a{
+}
+.navbar__lists li a{
   text-decoration: none;
   color:inherit;
+}
+
+.navbar__setting{
+ 
+ padding-top: 19px  !important;
+ 
+ 
+}
+.darkNavbar__setting{
+  fill:#ffffff;
 }
 .navbar__lists li:target{
  
@@ -260,4 +270,62 @@ padding-right: 20px;
 
 .hidden{
   display: none;
+}
+
+/* Modal */
+
+.modal{
+  z-index: 10;
+  width: 600px;
+  height: 250px;
+  border: 1px solid black;
+  background-color: #F1F1F1;
+ 
+  display: flex;
+  flex-direction: column;
+  
+  position: absolute;
+  top: 100px;
+  left: 450px;
+  text-align: center;
+  border-radius: 10px;
+}
+.modal h2{
+padding-top:10px;
+}
+
+
+.modal__section1{
+display: flex;
+justify-content: center;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.modal__section1 a{
+  border: 1px solid black;
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.modal__section1 h6{
+  margin-right: 40px;
+}
+
+.modal__section1__theme{
+  display: flex;
+}
+
+.modal__section1__theme p{
+ margin-right: 20px;
+ cursor: pointer;
+}
+
+.modal__section1 input{
+  width:35px;
+  height: 35px;
+  outline: none;
+  text-align: center;
 }

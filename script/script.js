@@ -108,7 +108,7 @@ let key='WEBDEVEDITOR';
     if(localStorage.getItem(`${key}TOGGLE`)){
       TOGGLE = localStorage.getItem(`${key}TOGGLE`);
       toggleMode = TOGGLE;
-      console.log(toggleMode);
+      // console.log(toggleMode);
       TOGGLEDARKMODE(TOGGLE);
     }
 
@@ -161,17 +161,18 @@ let key='WEBDEVEDITOR';
       let darkHTMLSVG = document.querySelector('#html-svg');
       let darkCSSSVG = document.querySelector('#css-svg');
       let darkJSSVG = document.querySelector('#js-svg');
-      
+      let darkSetting = document.querySelector('#navbar__setting_svg');
+
       if(toggleEle){
-         changeColorDark(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG);
+         changeColorDark(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG,darkSetting);
       }else{
-         changeColorLight(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG);
+         changeColorLight(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG,darkSetting);
       }  
  }
 
  // darkmode 
 
- function changeColorDark(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG){
+ function changeColorDark(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG,darkSetting){
 
    
    darkNavbar.classList.add('dark_navbar');
@@ -185,15 +186,15 @@ let key='WEBDEVEDITOR';
    darkHTMLSVG.classList.add('dark_refresh-svg');
    darkCSSSVG.classList.add('dark_refresh-svg');
    darkJSSVG.classList.add('dark_refresh-svg');
+   darkSetting.classList.add('darkNavbar__setting')
    
    darksvg.style.backgroundColor="rgb(39 46 56)";
-
    
  }
 
  // lightmode
 
- function changeColorLight(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG){
+ function changeColorLight(darkNavbar,darkNavbarHeading,darkNavbarLists,darkHTML,darkCSS,darkJS,draggable,darkHTMLSVG,darkCSSSVG,darkJSSVG,darkSetting){
    
    darkNavbar.classList.remove('dark_navbar');
    darkNavbarHeading.classList.remove('dark_heading');
@@ -206,6 +207,7 @@ let key='WEBDEVEDITOR';
    darkHTMLSVG.classList.remove('dark_refresh-svg');
    darkCSSSVG.classList.remove('dark_refresh-svg');
    darkJSSVG.classList.remove('dark_refresh-svg'); 
+   darkSetting.classList.remove('darkNavbar__setting')
 
 
    darksvg.style.backgroundColor="#ECECED";
@@ -237,6 +239,44 @@ let key='WEBDEVEDITOR';
  }
 
 
- function showConsoleValue(){
+// Setting toggle
+let ToggleSetting=false;
+function ToggleSettingfunction(){
+   ToggleSetting=!ToggleSetting;
+   let modal = document.querySelector('#modal');
+   let body = document.querySelector('.Body');
+   let navbar = document.querySelector('.navbar')
+
+   if(ToggleSetting){
+      YesToggleSetting(modal,body,navbar);
+   }
+   else{
+      NoToggleSetting(modal,body,navbar);
+   }
+
+}
+
+function YesToggleSetting(modal,body,navbar){
+   modal.classList.add('modal');
+   body.style.opacity='0.7';
+   navbar.style.opacity='0.7';
    
- }
+}
+function NoToggleSetting(modal,body,navbar){
+   modal.classList.remove('modal');
+   body.style.opacity='1';
+   navbar.style.opacity='1';
+   
+}
+
+function RemoveToggleSetting(){
+   let modal = document.querySelector('#modal');
+   let body = document.querySelector('.Body');
+   let navbar = document.querySelector('.navbar')
+   
+   if(ToggleSetting){
+      NoToggleSetting(modal,body,navbar);
+      
+   }
+   ToggleSetting=false;
+}
