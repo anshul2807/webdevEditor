@@ -280,3 +280,17 @@ function RemoveToggleSetting(){
    }
    ToggleSetting=false;
 }
+
+
+function SaveSettings(){
+   let html = document.querySelector('#htmlCode');
+   let css = document.querySelector('#cssCode');
+   let js = document.querySelector('#jsCode');
+   
+   let settingFont = document.querySelector('#modal__setting__font');
+
+   html.style.fontSize=`${settingFont.value}px`;
+   css.style.fontSize=`${settingFont.value}px`;
+   js.style.fontSize=`${settingFont.value}px`;
+   
+}
