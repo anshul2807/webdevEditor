@@ -240,6 +240,14 @@
   margin-left: 10px;
   
 }
+.console__runner{
+  margin-top: 2px;
+}
+.console__btn-run{
+  border:1px dotted black;
+  padding: 2px 15px;
+  cursor: pointer;
+}
 .console__expand{
   cursor: pointer;
 }
