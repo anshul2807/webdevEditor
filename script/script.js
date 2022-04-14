@@ -28,7 +28,8 @@ let key='WEBDEVEDITOR';
     localStorage.setItem(`${key}HTML`,html);
     localStorage.setItem(`${key}CSS`,cssCode.value);
     localStorage.setItem(`${key}JS`,jsCode.value);
-
+   
+    changeConsoleStatus(status_checker(jsCode.value));
   }
   const clearSection = (key) =>{
      switch (key) {
@@ -112,7 +113,7 @@ let key='WEBDEVEDITOR';
       TOGGLEDARKMODE(TOGGLE);
     }
 
-    L_html = L_html;
+    L_html =L_html;
     L_css = "<style>"+L_css+"</style>";
     L_js = "<script>"+L_js+"</script>";
 
@@ -294,3 +295,56 @@ function SaveSettings(){
    js.style.fontSize=`${settingFont.value}px`;
    
 }
+
+// Console log
+const consoleInput = document.querySelector(".console__Inputzone input");
+const historyContainer = document.querySelector(".console__Scrollzone");
+
+function addResult(inputAsString, output){
+   const outputAsString = output instanceof Array ? `[${output.join(", ")}]` : output.toString();
+  const inputLogElement = document.createElement("p");
+  const outputLogElement = document.createElement("p");
+
+  inputLogElement.classList.add("console-inputLog");
+  outputLogElement.classList.add("console-outputLog");
+
+  inputLogElement.textContent = `> ${inputAsString}`;
+  outputLogElement.textContent = outputAsString;
+
+  historyContainer.append(inputLogElement, outputLogElement);
+}
+
+consoleInput.addEventListener("keyup", (e) => {
+   const code = consoleInput.value.trim();
+ 
+   if (code.length === 0) {
+     return;
+   }
+ 
+   if (e.key === "Enter") {
+     try {
+       addResult(code, eval(code));
+     } catch (err) {
+       addResult(code, err);
+     }
+ 
+     consoleInput.value = "";
+     historyContainer.scrollTop = historyContainer.scrollHeight;
+   }
+ });
+ function status_checker(exp){
+   //  console.log("Inside -> status_checker");
+    let ans=true;
+    try{
+      eval(exp);
+    }catch(e){
+      ans=false;
+    }
+    return ans;
+ }
+ function changeConsoleStatus(satus){
+   // console.log("Inside -> changeConsoleStatus");
+    let statt=document.querySelector('.console--statusP');
+    if(satus==true)statt.textContent="OK";
+    else statt.innerHTML="Error"
+ }

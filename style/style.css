@@ -228,11 +228,45 @@
     width: 100%;
     height: 29px;
     border:1px solid black;
-   display: flex;
-   
-   justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(174, 174, 174);;
+  }
+  .console-first{
+    box-sizing: border-box;
+    display: flex;
+    
+    justify-content: space-between;
+    
+  }
+  .console-second{
+    /* border:1px solid black; */
+    height: 100%;
+  }
+  /* console Log's start */
+  .console__inner{
+
+  }
+  .console__Scrollzone{
+    /* border: 1px solid red; */
+    border-top: 1px solid black;
+    height: 199px;
+    overflow-y: auto;
+
+  }
+  .console__Inputzone{
+    /* border: 1px solid red; */
+  }
+  .console__Inputzone input{
+    width: 100%;
+    outline: none;
+  }
+  .console-inputLog , .console-outputLog{
+    box-sizing: border-box;
+    margin-left: 10px;
   }
 
+  /* console Log's End */
 .console__head{
   text-align: end;
   padding-right: 30px;
@@ -257,11 +291,12 @@
 
 
 .expanded__console{
-    height: 172px;
+    height: 269px;
+    
 }
 
 .expanded__preview-area{
-  height: 425px;
+  height: 325px;
 }
 
 .console__status{

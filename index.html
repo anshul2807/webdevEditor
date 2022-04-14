@@ -85,25 +85,35 @@
              <iframe width="100%" height="100%" id="preview-window"></iframe>
            
            <!-- Console -->
-             <div class="console">
-            <div class="console__head">
-                <img class="console__expand" src="./static/expand.svg" alt="expandmore" 
-                onclick="expanded()"
-                />
-                <label id="console-label"
-                onclick="expanded()"
-                >console</label>
-            </div>
-            <div class="console__runner">
-                <a onclick="showPreview()" class="console__btn-run">RUN</a>
-            </div>
-            <div class="console__status">
-                <label>Status : </label>
-                <p> OK</p>
-            </div>
-            <div class="console__inner hidden">
-                <p id="console__value"></p>
-            </div>
+            <div class="console">
+                <div class="console-first">
+
+                    <div class="console__head">
+                        <img class="console__expand" src="./static/expand.svg" alt="expandmore" 
+                        onclick="expanded()"
+                        />
+                        <label id="console-label"
+                        onclick="expanded()"
+                        >console</label>
+                    </div>
+                    <div class="console__runner">
+                        <a onclick="showPreview()" class="console__btn-run">RUN</a>
+                    </div>
+                    <div class="console__status">
+                        <label>Status : </label>
+                        <p class="console--statusP">OK</p>
+                    </div>
+                </div>
+                <div class="console-second">
+                    <div class="console__inner hidden">
+                        <div class="console__Scrollzone">
+                            
+                        </div>
+                        <div class="console__Inputzone">
+                            <input type="text" placeholder="Enter your code" autofocus spellcheck="false"/>
+                        </div>
+                    </div>
+                </div>
             </div>
            </div>
      
