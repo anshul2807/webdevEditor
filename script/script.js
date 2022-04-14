@@ -60,6 +60,7 @@ let key='WEBDEVEDITOR';
   }
 
   const listsStyle = (params) =>{
+     openModal();
    listunstyle();
    let darksvg = document.querySelector(`.navbar__lists__${params}`);
    darksvg.style.borderBottom = "2px solid #1a73e8";
@@ -347,4 +348,16 @@ consoleInput.addEventListener("keyup", (e) => {
     let statt=document.querySelector('.console--statusP');
     if(satus==true)statt.textContent="OK";
     else statt.innerHTML="Error"
+ }
+
+ //
+ function closeModal(){
+   let modalsign=document.getElementById('modal-signs');
+   modalsign.classList.remove("modal-sign")
+   modalsign.classList.add("hidden")
+ }
+ function openModal(){
+   let modalsign=document.getElementById('modal-signs');
+   modalsign.classList.remove("hidden")
+   modalsign.classList.add("modal-sign")
  }
