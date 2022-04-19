@@ -3,9 +3,10 @@ let cssCode = document.getElementById("cssCode");
 let jsCode = document.getElementById("jsCode");
 let iframe = document.getElementById("preview-window");
 let darksvg = document.querySelector(".navbar__darkmode")
-
+const ENDPOINT = "https://cryptic-hamlet-65321.herokuapp.com/" // ENDPOINT for the custom API
+const CLIENTENDPOINT="https://anshul2807.github.io/webdevEditor/"
 let lists = document.querySelector('.navbar__lists li');
-
+var Globaldatabase={};
 let toggleMode=true;   // darkmode and lightmode
 
 // local var
@@ -89,40 +90,7 @@ let key='WEBDEVEDITOR';
  // Window ONLOAD
 
  window.onload=()=>{
-
-   
-    var L_html='',L_css,L_js;
-    var TOGGLE;
-    if(localStorage.getItem(`${key}HTML`)){
-      L_html = localStorage.getItem(`${key}HTML`);
-      htmlCode.innerHTML = L_html
-    }
-
-    if(localStorage.getItem(`${key}CSS`)){
-       L_css=localStorage.getItem(`${key}CSS`);
-      cssCode.innerHTML = L_css;
-    }
-
-    if(localStorage.getItem(`${key}JS`)){
-       L_js = localStorage.getItem(`${key}JS`);
-      jsCode.innerHTML = L_js;
-    }
-    if(localStorage.getItem(`${key}TOGGLE`)){
-      TOGGLE = localStorage.getItem(`${key}TOGGLE`);
-      toggleMode = TOGGLE;
-      // console.log(toggleMode);
-      TOGGLEDARKMODE(TOGGLE);
-    }
-
-    L_html =L_html;
-    L_css = "<style>"+L_css+"</style>";
-    L_js = "<script>"+L_js+"</script>";
-
-    var frame = iframe.contentWindow.document;
-    
-    frame.open();
-    frame.write(L_html+L_css+L_js);
-    frame.close();
+   getDataFromApi(`${ENDPOINT}data`) // fetching from API
  }
 
  // changeTheme
@@ -357,7 +325,89 @@ consoleInput.addEventListener("keyup", (e) => {
    modalsign.classList.add("hidden")
  }
  function openModal(){
+   
    let modalsign=document.getElementById('modal-signs');
    modalsign.classList.remove("hidden")
    modalsign.classList.add("modal-sign")
  }
+
+// getting Information from API
+
+async function getDataFromApi(API){
+   const response=await fetch(API);
+    Globaldatabase=await response.json();
+   if(response){
+      console.log(Globaldatabase);
+      APIfetchingToClientSide()
+   }
+
+}
+
+// post request to ENDPOINT
+
+
+function postDatatoApi(API,html,css,js){
+   fetch(API, {
+
+       method: "POST",
+      
+          body: JSON.stringify({
+              html,
+               css,
+               js
+          }),
+      
+          headers: {
+              "Content-type": "application/json; charset=UTF-8"
+          }
+      })
+      .then(response => response.json())
+      .then(json => addGenerateLink(json));
+}
+
+function makeURL(){
+   console.log("Working");
+   html = htmlCode.value;
+   css = cssCode.value;
+   js = jsCode.value;
+   postDatatoApi(ENDPOINT,html,css,js);
+}
+
+
+function APIfetchingToClientSide(){
+   let params = new URLSearchParams(location.search).get("id");
+   let API_Global=Globaldatabase.filter(dd=>dd.id===params)[0];
+   
+    if(API_Global===undefined){
+       console.log("Error");
+       return;
+    }
+    var L_html='',L_css,L_js;
+
+    L_html=API_Global.html;
+    L_css=API_Global.css;
+    L_js=API_Global.js;
+
+    htmlCode.innerHTML=L_html;
+    cssCode.innerHTML=L_css;
+    jsCode.innerHTML=L_js;
+
+    L_html =L_html;
+    L_css = "<style>"+L_css+"</style>";
+    L_js = "<script>"+L_js+"</script>";
+
+    var frame = iframe.contentWindow.document;
+    
+    frame.open();
+    frame.write(L_html+L_css+L_js);
+    frame.close();
+}
+
+function addGenerateLink(urle){
+   let clientLINK=`${CLIENTENDPOINT}?id=${urle}`;
+   let aTag = document.createElement('a');
+   aTag.setAttribute('href',clientLINK);
+   aTag.innerText = "Click Me";
+   document.getElementById('generatelink').appendChild(aTag);
+
+}
